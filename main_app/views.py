@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .models import Project
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -28,3 +29,6 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+class ProjectList(ListView):
+  model = Project
