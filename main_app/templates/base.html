@@ -20,6 +20,7 @@
         <ul class="right">
           {% if user.is_authenticated %}
             <li><a href="/landing">Test Landing</a></li>
+            <li><a href="{% url 'projects_create' %}">New Project</a></li>
             <li><a href="{% url 'projects_index' %}">My Projects</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}

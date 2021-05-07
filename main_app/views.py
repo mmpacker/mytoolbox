@@ -35,3 +35,11 @@ class ProjectList(ListView):
 
 class ProjectDetail(DetailView):
   model = Project
+
+class ProjectCreate(CreateView):
+  model = Project
+  fields = ['title', 'location', 'budget']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
