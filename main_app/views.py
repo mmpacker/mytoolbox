@@ -43,3 +43,7 @@ class ProjectCreate(CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
+
+class ProjectUpdate(UpdateView):
+  model = Project
+  fields = ['title', 'location', 'budget']

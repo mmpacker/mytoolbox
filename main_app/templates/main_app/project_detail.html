@@ -11,10 +11,10 @@
         <p>Location: {{ project.location }}</p>
         <p>Budget: ${{ project.budget }}</p>
       </div>
-      {% comment %} <div class="card-action">
-        <a href="{% url 'toys_update' toy.id %}">Edit</a>
-        <a href="{% url 'toys_delete' toy.id %}">Delete</a>
-      </div> {% endcomment %}
+      <div class="card-action">
+        <a href="{% url 'projects_update' project.id %}">Edit</a>
+        {% comment %} <a href="{% url 'toys_delete' toy.id %}">Delete</a> {% endcomment %}
+      </div>
     </div>
   </div>
 </div>
