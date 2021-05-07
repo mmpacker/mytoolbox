@@ -13,13 +13,14 @@
 <body>
   <header class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper indigo darken-4">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;MyToolbox</a></li>
+          <li>&nbsp;&nbsp;<img class="logo" src={% static "images/MyToolbox_Logo_Transparent_v2.png" %} height="65"><a href="/" class="left brand-logo">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MyToolbox</a></li>
         </ul>
         <ul class="right">
           {% if user.is_authenticated %}
             <li><a href="/landing">Test Landing</a></li>
+            <li><a href="/projects">My Projects</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -33,7 +34,7 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
+  <footer class="page-footer indigo darken-4">
     <div class="right">All Rights Reserved, &copy; 2021 Matt Packer &nbsp;</div>
   </footer>
 </body>
