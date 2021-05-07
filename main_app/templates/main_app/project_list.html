@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Project List</h1>
+<h1>My Projects</h1>
 
-{% comment %} {% for toy in toy_list %}
-  <a href="{% url 'toys_detail' toy.id %}">
+{% for project in project_list %}
+  <a href="{% url 'projects_detail' project.id %}">
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ toy.name }}</span>
-            <p>Color: {{ toy.color }}</p>
+            <span class="card-title">{{ project.title }}</span>
+            <p>Location: </p>
         </div>
     </div>
   </a>
-{% endfor %} {% endcomment %}
+{% endfor %}
 
 {% endblock %}

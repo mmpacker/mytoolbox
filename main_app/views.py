@@ -32,3 +32,6 @@ def signup(request):
 
 class ProjectList(ListView):
   model = Project
+
+class ProjectDetail(DetailView):
+  model = Project

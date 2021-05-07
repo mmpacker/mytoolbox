@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Project Details</h1>
+
+<div class="row">
+  <div class="col s6 col-offset-3">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ project.title }}</span>
+        <p>Location: {{ project.location }}</p>
+        <p>Budget: ${{ project.budget }}</p>
+      </div>
+      {% comment %} <div class="card-action">
+        <a href="{% url 'toys_update' toy.id %}">Edit</a>
+        <a href="{% url 'toys_delete' toy.id %}">Delete</a>
+      </div> {% endcomment %}
+    </div>
+  </div>
+</div>
+{% endblock %}
