@@ -8,7 +8,8 @@
     <div class="card">
       <div class="card-content">
         <span class="card-title">{{ tool.name }}</span>
-        <p>Power: {{ tool.power }}</p>
+        <p>Power: {{ tool.get_power_display }}</p><br/>
+        <p><img class="" src={{ tool.image }} height="200"></p>
       </div>
       <div class="card-action">
         <a href="{% url 'tools_update' tool.id %}">Edit</a>
