@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<h1 class='center'>Welcome to MyToolbox!</h1>
+<br/><br/><br/>
+
+<div class="center">
+  <img class="logo" src={% static "images/MyToolbox_Logo_Transparent_v2.png" %} height="250">
+</div>
+<h1 class='center'>
+  Welcome to MyToolbox!
+</h1>
 <hr />
 <ul class='center'>
   <li><a class="waves-effect deep-orange waves-light btn" href="{% url 'projects_create' %}">Create a New Project</a></li><br/>

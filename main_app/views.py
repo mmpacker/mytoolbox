@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -30,13 +31,13 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-class ProjectList(ListView):
+class ProjectList(LoginRequiredMixin, ListView):
   model = Project
 
-class ProjectDetail(DetailView):
+class ProjectDetail(LoginRequiredMixin, DetailView):
   model = Project
 
-class ProjectCreate(CreateView):
+class ProjectCreate(LoginRequiredMixin, CreateView):
   model = Project
   fields = ['title', 'location', 'budget']
 
@@ -44,10 +45,10 @@ class ProjectCreate(CreateView):
     form.instance.user = self.request.user
     return super().form_valid(form)
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
   model = Project
   fields = ['title', 'location', 'budget']
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(LoginRequiredMixin, DeleteView):
   model = Project
   success_url = '/projects/'
