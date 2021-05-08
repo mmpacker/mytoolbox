@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %}
 {% block content %}
 
 <h1>Project Details</h1>
@@ -18,4 +18,23 @@
     </div>
   </div>
 </div>
-{% endblock %}
+<hr>
+<div class="row">
+  <div class="col s12">
+    <h3>Tools for My Project</h3>
+
+    {% if project.tools.count %}
+      {% for tool in project.tools.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ tool.name }}</span>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Tools Chosen Yet</h5>
+    {% endif %}
+  </div>
+</div>
+{% endblock %} {% endcomment %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Project Details</h1>
+
+<div class="row">
+  <div class="col s12 col-offset-3">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ project.title }}</span>
+        <p>Location: {{ project.location }}</p>
+        <p>Budget: ${{ project.budget }}</p>
+      </div>
+      <div class="card-action">
+        <a class="deep-orange btn" href="{% url 'projects_update' project.id %}">Edit</a>&nbsp;
+        <a class="red darken-4 btn" href="{% url 'projects_delete' project.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h3>Tools for My Project</h3>
+    {% if project.tools.count %}
+      {% for tool in project.tools.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ tool.name }}</span><br/>
+              <p>Power: {{ tool.get_power_display }}</p><br/>
+              <p><img class="" src={{ tool.image }} height="100"></p>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'unassoc_tool' project.id tool.id %}" method="POST">
+              {% csrf_token %}
+            <button type="submit" class="red darken-4 btn">remove</button>
+          </form>
+        </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Tools Chosen Yet</h5>
+    {% endif %}
+  </div>
+  <div class="col s6">
+    <h3>Available Tools</h3>
+    {% if tools.count %}
+      {% for tool in tools.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              <span>{{ tool.name }}</span><br/>
+              <p>Power: {{ tool.get_power_display }}</p><br/>
+              <p><img class="" src={{ tool.image }} height="100"></p>
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_tool' project.id tool.id %}" method="POST">
+              {% csrf_token %}
+          <button type="submit" class="deep-orange btn">Add</button>
+          </form>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>Project Using All Available Tools</h5>
+    {% endif %}
+  </div>
+</div>
+<hr>
+{% endblock %}

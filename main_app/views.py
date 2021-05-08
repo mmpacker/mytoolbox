@@ -34,8 +34,16 @@ def signup(request):
 class ProjectList(LoginRequiredMixin, ListView):
   model = Project
 
-class ProjectDetail(LoginRequiredMixin, DetailView):
-  model = Project
+# class ProjectDetail(LoginRequiredMixin, DetailView):
+#   model = Project
+
+#   def tools_project_doesnt_have(self, Tool.objects.exclude(id__in = project.tools.all().values_list('id'))
+
+@login_required
+def projects_detail(request, project_id):
+  project = Project.objects.get(id=project_id)
+  tools_project_doesnt_use = Tool.objects.exclude(id__in = project.tools.all().values_list('id'))
+  return render(request, 'projects/detail.html', { 'project': project, 'tools': tools_project_doesnt_use })
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
   model = Project
@@ -70,3 +78,13 @@ class ToolUpdate(UpdateView):
 class ToolDelete(DeleteView):
   model = Tool
   success_url = '/tools/'
+
+@login_required
+def assoc_tool(request, project_id, tool_id):
+  Project.objects.get(id=project_id).tools.add(tool_id)
+  return redirect('projects_detail', project_id=project_id)
+
+@login_required
+def unassoc_tool(request, project_id, tool_id):
+  Project.objects.get(id=project_id).tools.remove(tool_id)
+  return redirect('projects_detail', project_id=project_id)

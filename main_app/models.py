@@ -9,21 +9,6 @@ POWERS = (
 )
 
 # Create your models here.
-
-class Project(models.Model):
-  title = models.CharField(max_length=100)
-  location = models.CharField(max_length=100)
-  budget = models.IntegerField('Budget ($ Dollars)')
-  complete = models.BooleanField(default=False)
-  user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-  def __str__(self):
-    return self.title
-  
-  def get_absolute_url(self):
-    return reverse('projects_detail', kwargs={'pk': self.id})
-
-
 class Tool(models.Model):
   name = models.CharField(max_length=50)
   power = models.CharField(
@@ -38,3 +23,19 @@ class Tool(models.Model):
   
   def get_absolute_url(self):
     return reverse('tools_detail', kwargs={'pk': self.id})
+
+
+class Project(models.Model):
+  title = models.CharField(max_length=100)
+  location = models.CharField(max_length=100)
+  budget = models.IntegerField('Budget ($ Dollars)')
+  complete = models.BooleanField(default=False)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  tools = models.ManyToManyField(Tool)
+
+  def __str__(self):
+    return self.title
+  
+  def get_absolute_url(self):
+    return reverse('projects_detail', kwargs={'pk': self.id})
+
