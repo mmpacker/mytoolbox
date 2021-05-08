@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-  return redirect('login')
+  return redirect('landing')
 
 @login_required
 def landing(request):
