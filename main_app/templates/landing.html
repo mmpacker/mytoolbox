@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>MyToolbox Test</h1>
+<h1 class='center'>Welcome to MyToolbox!</h1>
 <hr />
-<p>Landing Page</p>
+<ul class='center'>
+  <li><a class="waves-effect deep-orange waves-light btn" href="{% url 'projects_create' %}">Create a New Project</a></li><br/>
+  <li><a class="waves-effect deep-orange waves-light btn" href="{% url 'projects_index' %}">&nbsp;&nbsp;&nbsp;&nbsp;View My Projects&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+</ul>
 
 {% endblock %}
