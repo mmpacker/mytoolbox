@@ -13,7 +13,7 @@ POWERS = (
 class Project(models.Model):
   title = models.CharField(max_length=100)
   location = models.CharField(max_length=100)
-  budget = models.IntegerField()
+  budget = models.IntegerField('Budget ($ Dollars)')
   complete = models.BooleanField(default=False)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
