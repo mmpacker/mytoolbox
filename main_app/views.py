@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Project
+from .models import Project, Tool
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -52,3 +52,21 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
 class ProjectDelete(LoginRequiredMixin, DeleteView):
   model = Project
   success_url = '/projects/'
+
+class ToolList(ListView):
+  model = Tool
+
+class ToolDetail(DetailView):
+  model = Tool
+
+class ToolCreate(CreateView):
+  model = Tool
+  fields = '__all__'
+
+class ToolUpdate(UpdateView):
+  model = Tool
+  fields = '__all__'
+
+class ToolDelete(DeleteView):
+  model = Tool
+  success_url = '/tools/'
