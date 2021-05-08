@@ -24,17 +24,17 @@ class Project(models.Model):
     return reverse('projects_detail', kwargs={'pk': self.id})
 
 
-# class Tool(models.Model):
-#   name = models.CharField(max_length=50)
-#   power = models.CharField(
-#     max_length=1,
-#     choices=POWERS,
-#     default=POWERS[0][0]
-#   )
-#   image = models.CharField(max_length=200)
+class Tool(models.Model):
+  name = models.CharField(max_length=50)
+  power = models.CharField(
+    max_length=1,
+    choices=POWERS,
+    default=POWERS[0][0]
+  )
+  image = models.CharField(max_length=200)
 
-#   def __str__(self):
-#     return self.name
+  def __str__(self):
+    return self.name
   
-#   def get_absolute_url(self):
-#     return reverse('tools_detail', kwargs={'pk': self.id})
+  def get_absolute_url(self):
+    return reverse('tools_detail', kwargs={'pk': self.id})
