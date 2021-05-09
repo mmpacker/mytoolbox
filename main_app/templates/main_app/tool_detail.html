@@ -12,8 +12,8 @@
         <p><img class="" src={{ tool.image }} height="200"></p>
       </div>
       <div class="card-action">
-        <a href="{% url 'tools_update' tool.id %}">Edit</a>
-        <a href="{% url 'tools_delete' tool.id %}">Delete</a>
+        <a class="deep-orange btn-small" href="{% url 'tools_update' tool.id %}">Edit</a>
+        <a class="red darken-4 btn-small" href="{% url 'tools_delete' tool.id %}">Delete</a>
       </div>
     </div>
   </div>
