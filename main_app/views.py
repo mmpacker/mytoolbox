@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Project, Tool
+from .models import Project, Tool, Material
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -91,4 +91,32 @@ def assoc_tool(request, project_id, tool_id):
 @login_required
 def unassoc_tool(request, project_id, tool_id):
   Project.objects.get(id=project_id).tools.remove(tool_id)
+  return redirect('projects_detail', project_id=project_id)
+
+class MaterialList(ListView):
+  model = Material
+
+class MaterialDetail(DetailView):
+  model = Material
+
+class MaterialCreate(CreateView):
+  model = Material
+  fields = '__all__'
+
+class MaterialUpdate(UpdateView):
+  model = Material
+  fields = '__all__'
+
+class MaterialDelete(DeleteView):
+  model = Material
+  success_url = '/materials/'
+
+@login_required
+def assoc_material(request, project_id, material_id):
+  Project.objects.get(id=project_id).materials.add(material_id)
+  return redirect('projects_detail', project_id=project_id)
+
+@login_required
+def unassoc_material(request, project_id, material_id):
+  Project.objects.get(id=project_id).materials.remove(material_id)
   return redirect('projects_detail', project_id=project_id)

@@ -25,6 +25,17 @@ class Tool(models.Model):
     return reverse('tools_detail', kwargs={'pk': self.id})
 
 
+class Material(models.Model):
+  name = models.CharField(max_length=50)
+  image = models.CharField(max_length=200)
+
+  def __str__(self):
+    return self.name
+
+  def get_absolute_url(self):
+    return reverse('materials_detail', kwargs={'pk': self.id})
+
+
 class Project(models.Model):
   title = models.CharField(max_length=100)
   location = models.CharField(max_length=100)
@@ -32,6 +43,7 @@ class Project(models.Model):
   complete = models.BooleanField(default=False)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   tools = models.ManyToManyField(Tool)
+  materials = models.ManyToManyField(Material)
 
   def __str__(self):
     return self.title
