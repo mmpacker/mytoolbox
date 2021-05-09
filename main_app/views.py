@@ -47,7 +47,8 @@ class ProjectList(LoginRequiredMixin, ListView):
 def projects_detail(request, project_id):
   project = Project.objects.get(id=project_id)
   tools_project_doesnt_use = Tool.objects.exclude(id__in = project.tools.all().values_list('id'))
-  return render(request, 'projects/detail.html', { 'project': project, 'tools': tools_project_doesnt_use })
+  materials_project_doesnt_use = Material.objects.exclude(id__in = project.materials.all().values_list('id'))
+  return render(request, 'projects/detail.html', { 'project': project, 'tools': tools_project_doesnt_use, 'materials': materials_project_doesnt_use  })
 
 class ProjectCreate(LoginRequiredMixin, CreateView):
   model = Project

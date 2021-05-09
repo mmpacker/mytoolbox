@@ -67,6 +67,50 @@
       </tbody>
     </table>
   </div>
+  <div class="col s6">
+    <h3>Available Materials</h3>
+    <table class='striped'>
+      <thead>
+        <tr>
+          <th>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+          <th></th>
+          <th>Selected</th>
+          <th></th>
+      </thead>
+      <tbody>
+        {% for material in project.materials.all %}
+          <tr>
+            <td>{{ material.name }}</td>
+            <td>
+              <img class="" src={{ material.image }} height="50">
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&check;</td>
+            <td>
+              <form action="{% url 'unassoc_material' project.id material.id %}" method="POST">
+                {% csrf_token %}
+                  <button type="submit" class="red darken-4 btn-small">remove</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+        {% for material in materials.all %}
+          <tr>
+            <td>{{ material.name }}</td>
+            <td>
+              <img class="" src={{ material.image }} height="50">
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+              <form action="{% url 'assoc_material' project.id material.id %}" method="POST">
+                {% csrf_token %}
+                  <button type="submit" class="green accent-3 btn-small">&nbsp;&nbsp;&nbsp;add&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 <hr>
 {% endblock %}
