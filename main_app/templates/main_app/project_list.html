@@ -2,16 +2,19 @@
 {% block content %}
 
 <h1>My Projects</h1>
-
-{% for project in project_list %}
-  <a href="{% url 'projects_detail' project.id %}">
-    <div class="card">
+<div class="row">
+  {% for project in project_list %}
+    <div class="col s9">
+      <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ project.title }}</span>
-            <p>Location: </p>
+          <span class="card-title">{{ project.title }}</span>
+          <p>Location: {{ project.location }}</p>
+          <p>Budget: ${{ project.budget }}</p><br/>
+          <a class="deep-orange btn"href="{% url 'projects_detail' project.id %}">Details</a>
         </div>
+      </div>
     </div>
-  </a>
-{% endfor %}
+  {% endfor %}
+</div>
 
 {% endblock %}
