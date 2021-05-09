@@ -24,7 +24,7 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('index')
+      return redirect('landing')
     else:
       error_message = 'Invalid sign up - try again'
   form = UserCreationForm()
@@ -33,6 +33,10 @@ def signup(request):
 
 class ProjectList(LoginRequiredMixin, ListView):
   model = Project
+  def get_queryset(self):
+    self.user = self.request.user
+    return Project.objects.filter(user=self.user)
+  
 
 # class ProjectDetail(LoginRequiredMixin, DetailView):
 #   model = Project
