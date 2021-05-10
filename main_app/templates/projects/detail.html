@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Project Details</h1>
+<h1 style='font-family: Lato'>Project Details</h1>
+<h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to My Projects&nbsp;&nbsp;<a class="deep-orange btn-small" href="{% url 'projects_index' %}">back</a><h5>
 
 <div class="row">
   <div class="col s12 col-offset-3">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ project.title }}</span>
+        <span class="card-title">🗒&nbsp;&nbsp;{{ project.title }}</span>
         <p>Location: {{ project.location }}</p>
         <p>Budget: ${{ project.budget }}</p>
       </div>
@@ -21,7 +22,7 @@
 <hr>
 <div class="row">
   <div class="col s6">
-    <h3>Available Tools</h3>
+    <h3 style='font-family: Lato'>Available Tools&nbsp;&nbsp;🧰</h3>
     <table class='striped'>
       <thead>
         <tr>
@@ -68,7 +69,7 @@
     </table>
   </div>
   <div class="col s6">
-    <h3>Available Materials</h3>
+    <h3 style='font-family: Lato'>Available Materials&nbsp;&nbsp;🧱</h3>
     <table class='striped'>
       <thead>
         <tr>
