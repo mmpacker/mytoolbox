@@ -66,21 +66,21 @@ class ProjectDelete(LoginRequiredMixin, DeleteView):
   model = Project
   success_url = '/projects/'
 
-class ToolList(ListView):
+class ToolList(LoginRequiredMixin, ListView):
   model = Tool
 
-class ToolDetail(DetailView):
+class ToolDetail(LoginRequiredMixin, DetailView):
   model = Tool
 
-class ToolCreate(CreateView):
-  model = Tool
-  fields = '__all__'
-
-class ToolUpdate(UpdateView):
+class ToolCreate(LoginRequiredMixin, CreateView):
   model = Tool
   fields = '__all__'
 
-class ToolDelete(DeleteView):
+class ToolUpdate(LoginRequiredMixin, UpdateView):
+  model = Tool
+  fields = '__all__'
+
+class ToolDelete(LoginRequiredMixin, DeleteView):
   model = Tool
   success_url = '/tools/'
 
@@ -94,21 +94,21 @@ def unassoc_tool(request, project_id, tool_id):
   Project.objects.get(id=project_id).tools.remove(tool_id)
   return redirect('projects_detail', project_id=project_id)
 
-class MaterialList(ListView):
+class MaterialList(LoginRequiredMixin, ListView):
   model = Material
 
-class MaterialDetail(DetailView):
+class MaterialDetail(LoginRequiredMixin, DetailView):
   model = Material
 
-class MaterialCreate(CreateView):
-  model = Material
-  fields = '__all__'
-
-class MaterialUpdate(UpdateView):
+class MaterialCreate(LoginRequiredMixin, CreateView):
   model = Material
   fields = '__all__'
 
-class MaterialDelete(DeleteView):
+class MaterialUpdate(LoginRequiredMixin, UpdateView):
+  model = Material
+  fields = '__all__'
+
+class MaterialDelete(LoginRequiredMixin, DeleteView):
   model = Material
   success_url = '/materials/'
 
