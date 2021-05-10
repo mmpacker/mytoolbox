@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
   {% if object %}
     <h1 style='font-family: Lato'>Edit <span class="deep-orange-text">{{object.title}}&nbsp;&nbsp;🏗</span></h1>
@@ -15,10 +14,8 @@
     </table><br/>
     <input type="submit" value="Submit" class="deep-orange btn">
   </form>
-
   <script>
     let selectEl = document.getElementById('id_status');
     M.FormSelect.init(selectEl);
   </script>
-
 {% endblock %}

@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block content %}
   {% if object %}
     <h1>Edit <span class="deep-orange-text">{{object.name}}&nbsp;&nbsp;🧱</span></h1>
@@ -8,12 +7,11 @@
     <h1>Add Building Material&nbsp;&nbsp;🧱</h1>
     <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to Building Materials&nbsp;&nbsp;<a class="deep-orange btn-small" href="{% url 'materials_index' %}">back</a><h5>
   {% endif %}
-  <form action="" method="POST">
-    {% csrf_token %}
-    <table>
-      {{ form.as_table }}
-    </table><br/>
-    <input type="submit" value="Submit" class="deep-orange btn">
-  </form>
-
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+        {{ form.as_table }}
+      </table><br/>
+      <input type="submit" value="Submit" class="deep-orange btn">
+    </form>
 {% endblock %}
