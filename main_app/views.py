@@ -7,6 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django import forms
 
 
 # Create your views here.
@@ -39,12 +40,6 @@ class ProjectList(LoginRequiredMixin, ListView):
   def get_queryset(self):
     self.user = self.request.user
     return Project.objects.filter(user=self.user)
-  
-
-# class ProjectDetail(LoginRequiredMixin, DetailView):
-#   model = Project
-
-#   def tools_project_doesnt_have(self, Tool.objects.exclude(id__in = project.tools.all().values_list('id'))
 
 @login_required
 def projects_detail(request, project_id):
@@ -63,7 +58,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
 
 class ProjectUpdate(LoginRequiredMixin, UpdateView):
   model = Project
-  fields = ['title', 'location', 'budget']
+  fields = ['title', 'location', 'budget', 'status']
 
 class ProjectDelete(LoginRequiredMixin, DeleteView):
   model = Project

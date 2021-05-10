@@ -11,6 +11,9 @@
         <span class="card-title">🗒&nbsp;&nbsp;{{ project.title }}</span>
         <p>Location: {{ project.location }}</p>
         <p>Budget: ${{ project.budget }}</p>
+        <p>Status:
+        {{ project.get_status_display }}
+        </p>
       </div>
       <div class="card-action">
         <a class="deep-orange btn" href="{% url 'projects_update' project.id %}">Edit</a>&nbsp;

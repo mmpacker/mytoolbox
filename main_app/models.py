@@ -8,6 +8,12 @@ POWERS = (
   ('C', 'Corded'),
 )
 
+STAT = (
+  ('N', 'Not Started'),
+  ('I', 'In Progress'),
+  ('C', 'Completed')
+)
+
 # Create your models here.
 class Tool(models.Model):
   name = models.CharField(max_length=50)
@@ -40,7 +46,11 @@ class Project(models.Model):
   title = models.CharField(max_length=100)
   location = models.CharField(max_length=100)
   budget = models.IntegerField('Budget ($ Dollars)')
-  complete = models.BooleanField(default=False)
+  status = models.CharField(
+    max_length=1,
+    choices=STAT,
+    default=STAT[0][0]
+  )
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   tools = models.ManyToManyField(Tool)
   materials = models.ManyToManyField(Material)
