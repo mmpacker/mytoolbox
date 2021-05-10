@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
 
 <br/><br/><br/>
@@ -7,16 +8,17 @@
 <div class="center">
   <img class="logo" src={% static "images/MyToolbox_Logo_Transparent_v2.png" %} height="250">
 </div>
+
 <h1 style='font-family: Lato' class='center'>
-  Welcome to MyToolbox!
+  About MyToolbox
 </h1>
 <h5 style='font-family: Lato'  class='center'>
   Your Home Renovation Project Tracker
-</h5><br/>
-<hr /><br/>
+</h5>
+{% comment %} <hr />
 <ul class='center'>
-  <li><a class="waves-effect green accent-3 waves-light btn" href="{% url 'projects_create' %}">Start a New Project</a></li><br/>
-  <li><a class="waves-effect deep-orange waves-light btn" href="{% url 'projects_index' %}">&nbsp;&nbsp;&nbsp;View My Projects&nbsp;&nbsp;&nbsp;</a></li>
-</ul>
+  <li><a class="waves-effect deep-orange waves-light btn" href="{% url 'login' %}">log in</a></li><br/>
+  <li><span>Need to create an account? <a class="" href="{% url 'signup' %}">Sign Up</a><span></li>
+</ul> {% endcomment %}
 
 {% endblock %}

@@ -13,6 +13,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
   return render(request, 'home.html')
 
+def about(request):
+  return render(request, 'about.html')
+
 @login_required
 def landing(request):
   return render(request, 'landing.html')

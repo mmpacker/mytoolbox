@@ -6,6 +6,7 @@
     <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to Project Details&nbsp;&nbsp;<a class="deep-orange btn-small" href="{% url 'projects_detail' project.id %}">back</a><h5>
   {% else %}
     <h1 style='font-family: Lato'>Add Project &nbsp;&nbsp;🏗</h1>
+    <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to My Projects&nbsp;&nbsp;<a class="deep-orange btn-small" href="{% url 'projects_index' %}">back</a><h5>
   {% endif %}
   <form action="" method="POST">
     {% csrf_token %}

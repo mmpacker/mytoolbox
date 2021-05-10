@@ -18,13 +18,13 @@
     <nav>
       <div class="nav-wrapper indigo darken-4">
         <ul>
-          <li style="font-family: Saira Stencil One">&nbsp;&nbsp;&nbsp;<a href="/" class="left deep-orange-text brand-logo">MyToolbox</a></li>
+          <li style="font-family: Saira Stencil One">&nbsp;&nbsp;&nbsp;<a href="/landing" class="left deep-orange-text brand-logo">MyToolbox</a></li>
         </ul>
         <ul class="right">
+            <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'tools_index' %}">Tools</a></li>
-            <li><a href="{% url 'materials_create' %}">Add New Material</a></li>
-            <li><a href="{% url 'materials_index' %}">View All Materials</a></li>
+            <li><a href="{% url 'materials_index' %}">Building Materials</a></li>
             <li><a href="{% url 'projects_index' %}">My Projects</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
