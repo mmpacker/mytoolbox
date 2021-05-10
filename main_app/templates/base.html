@@ -7,24 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MyToolbox</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Permanent+Marker&family=Saira+Stencil+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper indigo darken-4">
         <ul>
-          <li>&nbsp;&nbsp;&nbsp;<a href="/" class="left deep-orange-text brand-logo">MyToolbox</a></li>
+          <li style="font-family: Saira Stencil One">&nbsp;&nbsp;&nbsp;<a href="/" class="left deep-orange-text brand-logo">MyToolbox</a></li>
         </ul>
         <ul class="right">
           {% if user.is_authenticated %}
-            <li><a href="{% url 'tools_create' %}">Add New Tool</a></li>
-            <li><a href="{% url 'tools_index' %}">View All Tools</a></li>
+            <li><a href="{% url 'tools_index' %}">Tools</a></li>
             <li><a href="{% url 'materials_create' %}">Add New Material</a></li>
             <li><a href="{% url 'materials_index' %}">View All Materials</a></li>
-            <li><a href="{% url 'projects_create' %}">New Project</a></li>
             <li><a href="{% url 'projects_index' %}">My Projects</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}

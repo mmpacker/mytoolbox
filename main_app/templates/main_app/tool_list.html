@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Tool List</h1>
+<h1 style='font-family: Lato'>Tools&nbsp;&nbsp;&nbsp;🧰</h1>
+<h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Create a New Tool&nbsp;&nbsp;<a class="green accent-3 btn-small" href="{% url 'tools_create' %}">Create</a><h5>
 
 <div class="row">
   {% for tool in tool_list %}
     <div class="col s9">
       <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ tool.name }}</span>
+            <span class="card-title">🛠&nbsp;&nbsp;{{ tool.name }}</span>
             <p>Power: {{ tool.get_power_display }}</p><br/>
             <a class="deep-orange btn"href="{% url 'tools_detail' tool.id %}">Details</a>
         </div>

@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
-  return redirect('landing')
+  return render(request, 'home.html')
 
 @login_required
 def landing(request):
