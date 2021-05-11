@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Building Material List&nbsp;&nbsp;🧱</h1>
+  <h1>Building Materials&nbsp;&nbsp;🧱</h1>
   <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Add a New Building Material&nbsp;&nbsp;<a class="green accent-3 btn-small" href="{% url 'materials_create' %}">Add New</a><h5>
   <div class="row">
     {% for material in material_list %}

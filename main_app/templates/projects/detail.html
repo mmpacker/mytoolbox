@@ -9,9 +9,7 @@
           <span class="card-title">🗒&nbsp;&nbsp;{{ project.title }}</span>
           <p>Location: {{ project.location }}</p>
           <p>Budget: ${{ project.budget }}</p>
-          <p>Status:
-          {{ project.get_status_display }}
-          </p>
+          <p>Status: {{ project.get_status_display }}</p>
         </div>
         <div class="card-action">
           <a class="deep-orange btn" href="{% url 'projects_update' project.id %}">Edit</a>&nbsp;
@@ -39,7 +37,9 @@
               <td>{{ tool.name }}</td>
               <td>{{ tool.get_power_display }}</td>
               <td>
-                <img class="" src={{ tool.image }} height="50">
+                {% for photo in tool.toolphoto_set.all %}
+                  <img class="" src={{ photo.url }} height="50">
+                {% endfor %}
               </td>
               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&check;</td>
               <td>
@@ -55,7 +55,9 @@
               <td>{{ tool.name }}</td>
               <td>{{ tool.get_power_display }}</td>
               <td>
-                <img class="" src={{ tool.image }} height="50">
+                {% for photo in tool.toolphoto_set.all %}
+                  <img class="" src={{ photo.url }} height="50">
+                {% endfor %}
               </td>
               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
               <td>
@@ -84,7 +86,9 @@
             <tr>
               <td>{{ material.name }}</td>
               <td>
-                <img class="" src={{ material.image }} height="50">
+                {% for photo in material.materialphoto_set.all %}
+                  <img class="" src={{ photo.url }} height="50">
+                {% endfor %}
               </td>
               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&check;</td>
               <td>
@@ -99,7 +103,9 @@
             <tr>
               <td>{{ material.name }}</td>
               <td>
-                <img class="" src={{ material.image }} height="50">
+                {% for photo in material.materialphoto_set.all %}
+                  <img class="" src={{ photo.url }} height="50">
+                {% endfor %}
               </td>
               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
               <td>
