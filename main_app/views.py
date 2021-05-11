@@ -134,7 +134,7 @@ def add_tool_photo(request, tool_id):
     try:
       s3.upload_fileobj(photo_file, BUCKET, key)
       url = f"{S3_BASE_URL}{BUCKET}/{key}"
-      photo = Photo(url=url, tool_id=tool_id)
+      photo = ToolPhoto(url=url, tool_id=tool_id)
       photo.save()
     except Exception as err:
       print('An error occurred uploading file to S3: %s' % err)

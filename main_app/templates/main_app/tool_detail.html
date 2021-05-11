@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1 style='font-family: Lato'>Tool Details&nbsp;&nbsp;🛠</h1>
+  <h1 style='font-family: Lato'><span class="deep-orange-text">{{ tool.name }}</span> Details&nbsp;&nbsp;🛠</h1>
   <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to Tools&nbsp;&nbsp;<a class="deep-orange btn-small" href="{% url 'tools_index' %}">back</a><h5>
   <div class="row">
     <div class="col s6 col-offset-3">
@@ -8,10 +8,10 @@
         <div class="card-content">
           <span class="card-title">{{ tool.name }}</span>
           <p>Power: {{ tool.get_power_display }}</p><br/>
-          {% for photo in tool.photo_set.all %}
-            <img class="responsive-img card-panel" src="{{photo.url}}">
+          {% for photo in tool.toolphoto_set.all %}
+            <img class="img card-panel" src="{{ photo.url }}" height="300">
           {% empty %}
-            <form action="{% url 'add_tool_photo' tool.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+            <form action="{% url 'add_tool_photo' tool.id %}" enctype="multipart/form-data" method="POST" class="card-panel">Add a Photo<br/><br/>
               {% csrf_token %}
                 <input type="file" name="photo-file">
                 <br><br>

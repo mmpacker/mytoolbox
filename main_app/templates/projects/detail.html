@@ -53,7 +53,9 @@
               <td>{{ tool.name }}</td>
               <td>{{ tool.get_power_display }}</td>
               <td>
-                <img class="" src={{ tool.image }} height="50">
+                {% for photo in tool.toolphoto_set.all %}
+                <img class="" src={{ photo.url }} height="50">
+                {% endfor %}
               </td>
               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
               <td>

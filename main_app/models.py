@@ -22,13 +22,15 @@ class Tool(models.Model):
     choices=POWERS,
     default=POWERS[0][0]
   )
-  image = models.CharField(max_length=200)
 
   def __str__(self):
     return self.name
   
   def get_absolute_url(self):
     return reverse('tools_detail', kwargs={'pk': self.id})
+
+  def has_tool_photo(self):
+    return self.toolphoto_set.all()
   
   class Meta:
     ordering = ['name']
