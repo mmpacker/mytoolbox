@@ -21,7 +21,6 @@
           <li style="font-family: Saira Stencil One">&nbsp;&nbsp;&nbsp;<a href="/landing" class="left deep-orange-text brand-logo">MyToolbox</a></li>
         </ul>
         <ul class="right">
-            <li><a href="{% url 'about' %}">About</a></li>
           {% if user.is_authenticated %}
             <li><a href="{% url 'tools_index' %}">Tools</a></li>
             <li><a href="{% url 'materials_index' %}">Building Materials</a></li>

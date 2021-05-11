@@ -38,7 +38,6 @@ class Tool(models.Model):
 
 class Material(models.Model):
   name = models.CharField(max_length=50)
-  image = models.CharField(max_length=200)
 
   def __str__(self):
     return self.name
