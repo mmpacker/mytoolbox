@@ -76,3 +76,10 @@ class ToolPhoto(models.Model):
 
   def __str__(self):
     return f"Photo for tool_id: {self.tool_id} @{self.url}"
+
+class MaterialPhoto(models.Model):
+  url = models.CharField(max_length=200)
+  material = models.ForeignKey(Material, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"Photo for material_id: {self.material_id} @{self.url}"

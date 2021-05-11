@@ -26,4 +26,5 @@ urlpatterns = [
   path('projects/<int:project_id>/assoc_material/<int:material_id>/', views.assoc_material, name='assoc_material'),
   path('projects/<int:project_id>/unassoc_material/<int:material_id>/', views.unassoc_material, name='unassoc_material'),
   path('tools/<int:tool_id>/add_tool_photo/', views.add_tool_photo, name='add_tool_photo'),
+  path('materials/<int:material_id>/add_material_photo/', views.add_material_photo, name='add_material_photo'),
 ]
