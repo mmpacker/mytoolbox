@@ -29,6 +29,9 @@ class Tool(models.Model):
   
   def get_absolute_url(self):
     return reverse('tools_detail', kwargs={'pk': self.id})
+  
+  class Meta:
+    ordering = ['name']
 
 
 class Material(models.Model):
@@ -40,6 +43,9 @@ class Material(models.Model):
 
   def get_absolute_url(self):
     return reverse('materials_detail', kwargs={'pk': self.id})
+  
+  class Meta:
+    ordering = ['name']
 
 
 class Project(models.Model):
@@ -61,3 +67,10 @@ class Project(models.Model):
   def get_absolute_url(self):
     return reverse('projects_detail', kwargs={'project_id': self.id})
 
+
+class ToolPhoto(models.Model):
+  url = models.CharField(max_length=200)
+  tool = models.ForeignKey(Tool, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return f"Photo for tool_id: {self.tool_id} @{self.url}"

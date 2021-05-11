@@ -9,7 +9,8 @@
           <div class="card-content">
             <span class="card-title">🗒&nbsp;&nbsp;{{ project.title }}</span>
             <p>Location: {{ project.location }}</p>
-            <p>Budget: ${{ project.budget }}</p><br/>
+            <p>Budget: ${{ project.budget }}</p>
+            <p>Status: {{ project.get_status_display }}</p><br/>
             <a class="deep-orange btn" href="{% url 'projects_detail' project.id %}">Details</a>
           </div>
         </div>

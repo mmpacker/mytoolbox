@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Project, Tool, Material
+from .models import Project, Tool, Material, ToolPhoto
 from django.http import HttpResponse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
@@ -8,7 +8,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django import forms
+import uuid
+import boto3
 
+
+S3_BASE_URL = "https://s3.us-east-2.amazonaws.com/"
+BUCKET = "mp-app-mytoolbox"
 
 # Create your views here.
 def home(request):
@@ -119,3 +124,18 @@ def assoc_material(request, project_id, material_id):
 def unassoc_material(request, project_id, material_id):
   Project.objects.get(id=project_id).materials.remove(material_id)
   return redirect('projects_detail', project_id=project_id)
+
+
+def add_tool_photo(request, tool_id):
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = Photo(url=url, tool_id=tool_id)
+      photo.save()
+    except Exception as err:
+      print('An error occurred uploading file to S3: %s' % err)
+  return redirect('tools_detail', pk=tool_id)

@@ -25,4 +25,5 @@ urlpatterns = [
   path('materials/', views.MaterialList.as_view(), name='materials_index'),
   path('projects/<int:project_id>/assoc_material/<int:material_id>/', views.assoc_material, name='assoc_material'),
   path('projects/<int:project_id>/unassoc_material/<int:material_id>/', views.unassoc_material, name='unassoc_material'),
+  path('tools/<int:tool_id>/add_tool_photo/', views.add_tool_photo, name='add_tool_photo'),
 ]
