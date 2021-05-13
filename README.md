@@ -59,14 +59,17 @@ I used [Trello](https://trello.com/b/G7p7wgEH/unit-4-mytoolbox#) to keep myself 
 
 
 ### Additional Tools and Resources:
-* Visual Studio Code (VS Code)
-* Trello (Planning and Organization Tool)
-* Whimsical (Wireframes, Entity Relationship Diagram)
-* Canva (Graphic Design Tool)
-* Slack (Collaboration and Communication)
+* [Visual Studio Code](https://code.visualstudio.com/) (VS Code)
+* [Trello](https://trello.com/en-US) (Project Planning and Organization Tool)
+* [Whimsical](https://whimsical.com/) (Flowchart/Diagram/Wireframing Tool)
+* [Canva](https://www.canva.com/) (Graphic Design Tool)
+* [Trianglify.io](https://trianglify.io/) (Low-Poly Background Generator)
+* [Slack](https://slack.com/) (Collaboration and Communication)
 
 
 ### Next Steps (Icebox Features):
 * Restyle app using another framework - like Bootstrap.
 * Make the app responsive and mobile friendly.
 * Add full budget tracking functionality for tools, materials, and other expenses.
+* Enhance user interface for adding/removing materials and tools from projects by using a drop down menu to select/add new items.
+* AAU, I should be able to adjust the quantity of each building material used in my project.
