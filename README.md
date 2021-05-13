@@ -70,4 +70,3 @@ I used [Trello](https://trello.com/b/G7p7wgEH/unit-4-mytoolbox#) to keep myself 
 * Restyle app using another framework - like Bootstrap.
 * Make the app responsive and mobile friendly.
 * Add full budget tracking functionality for tools, materials, and other expenses.
-* 
