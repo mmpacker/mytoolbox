@@ -51,21 +51,23 @@ I used [Trello](https://trello.com/b/G7p7wgEH/unit-4-mytoolbox#) to keep myself 
 * PostgreSQL
 * HTML
 * CSS
-* JavaScript
+* Materialize CSS
+* Amazon AWS (User Photos)
 * Git
 * GitHub
 * Heroku
 
 
 ### Additional Tools and Resources:
-* Font Awesome
 * Visual Studio Code (VS Code)
 * Trello (Planning and Organization Tool)
 * Whimsical (Wireframes, Entity Relationship Diagram)
 * Canva (Graphic Design Tool)
-* PxHere (Free Creative Commons Images)
 * Slack (Collaboration and Communication)
 
 
 ### Next Steps (Icebox Features):
+* Restyle app using another framework - like Bootstrap.
+* Make the app responsive and mobile friendly.
+* Add full budget tracking functionality for tools, materials, and other expenses.
 * 
