@@ -19,17 +19,17 @@
     <nav>
       <div class="nav-wrapper indigo darken-4">
         <ul>
-          <li style="font-family: Saira Stencil One">&nbsp;&nbsp;&nbsp;<a href="/landing" class="left deep-orange-text brand-logo">MyToolbox</a></li>
+          <li style="font-family: Saira Stencil One">&nbsp;&nbsp;&nbsp;<a href="/landing" class="hoverable left deep-orange-text brand-logo">MyToolbox</a></li>
         </ul>
         <ul class="right">
           {% if user.is_authenticated %}
-            <li><a href="{% url 'tools_index' %}">Tools</a></li>
-            <li><a href="{% url 'materials_index' %}">Building Materials</a></li>
-            <li><a href="{% url 'projects_index' %}">My Projects</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a class="hoverable waves-effect deep-orange waves-light btn-small" href="{% url 'tools_index' %}">Tools</a></li>
+            <li><a class="hoverable waves-effect deep-orange waves-light btn-small" href="{% url 'materials_index' %}">Building Materials</a></li>
+            <li><a class="hoverable waves-effect deep-orange waves-light btn-small" href="{% url 'projects_index' %}">My Projects</a></li>
+            <li><a class="hoverable waves-effect red darken-4 waves-light btn-small" href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a class="hoverable waves-effect green accent-3 waves-light btn-small" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="hoverable waves-effect deep-orange waves-light btn-small" href="{% url 'login' %}">Log In</a></li>
           {% endif %}
         </ul>
       </div>

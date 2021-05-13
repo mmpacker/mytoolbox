@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1 style='font-family: Lato'>My Projects&nbsp;&nbsp;&nbsp;🏗</h1>
-  <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Start a New Project&nbsp;&nbsp;<a class="green accent-3 btn-small" href="{% url 'projects_create' %}">New Project</a><h5>
+  <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Start a New Project&nbsp;&nbsp;<a class="hoverable green accent-3 btn-small" href="{% url 'projects_create' %}">New Project</a><h5>
   <div class="row">
     {% for project in project_list %}
       <div class="col s9">
@@ -11,7 +11,7 @@
             <p>Location: {{ project.location }}</p>
             <p>Budget: ${{ project.budget }}</p>
             <p>Status: {{ project.get_status_display }}</p><br/>
-            <a class="deep-orange btn" href="{% url 'projects_detail' project.id %}">Details</a>
+            <a class="hoverable deep-orange btn" href="{% url 'projects_detail' project.id %}">Details</a>
           </div>
         </div>
       </div>

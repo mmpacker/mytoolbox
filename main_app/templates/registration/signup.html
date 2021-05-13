@@ -7,7 +7,7 @@
   <form method="post" action="{% url 'signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="deep-orange btn" value="Create Account">
+    <input type="submit" class="hoverable deep-orange btn" value="Create Account">
   </form><br/>
   <span>Already have an account? <a class="" href="{% url 'login' %}">Log In</a><span>
 {% endblock %}

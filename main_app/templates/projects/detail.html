@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1 style='font-family: Lato'>Project Details&nbsp;&nbsp;🏗</h1>
-  <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to My Projects&nbsp;&nbsp;<a class="deep-orange btn-small" href="{% url 'projects_index' %}">back</a><h5>
+  <h5 style='font-family: Lato'>&nbsp;&nbsp;&nbsp;&nbsp;Back to My Projects&nbsp;&nbsp;<a class="hoverable deep-orange btn-small" href="{% url 'projects_index' %}">back</a><h5>
   <div class="row">
     <div class="col s12 col-offset-3">
       <div class="card">
@@ -12,8 +12,8 @@
           <p>Status: {{ project.get_status_display }}</p>
         </div>
         <div class="card-action">
-          <a class="deep-orange btn" href="{% url 'projects_update' project.id %}">Edit</a>&nbsp;
-          <a class="red darken-4 btn" href="{% url 'projects_delete' project.id %}">Delete</a>
+          <a class="hoverable deep-orange btn" href="{% url 'projects_update' project.id %}">Edit</a>&nbsp;
+          <a class="hoverable red darken-4 btn" href="{% url 'projects_delete' project.id %}">Delete</a>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
               <td>
                 <form action="{% url 'unassoc_tool' project.id tool.id %}" method="POST">
                   {% csrf_token %}
-                    <button type="submit" class="red darken-4 btn-small">remove</button>
+                    <button type="submit" class="hoverable red darken-4 btn-small">remove</button>
                 </form>
               </td>
             </tr>
@@ -63,7 +63,7 @@
               <td>
                 <form action="{% url 'assoc_tool' project.id tool.id %}" method="POST">
                   {% csrf_token %}
-                    <button type="submit" class="green accent-3 btn-small">&nbsp;&nbsp;&nbsp;add&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="hoverable green accent-3 btn-small">&nbsp;&nbsp;&nbsp;add&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </form>
               </td>
             </tr>
@@ -94,7 +94,7 @@
               <td>
                 <form action="{% url 'unassoc_material' project.id material.id %}" method="POST">
                   {% csrf_token %}
-                    <button type="submit" class="red darken-4 btn-small">remove</button>
+                    <button type="submit" class="hoverable red darken-4 btn-small">remove</button>
                 </form>
               </td>
             </tr>
@@ -111,7 +111,7 @@
               <td>
                 <form action="{% url 'assoc_material' project.id material.id %}" method="POST">
                   {% csrf_token %}
-                    <button type="submit" class="green accent-3 btn-small">&nbsp;&nbsp;&nbsp;add&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                    <button type="submit" class="hoverable green accent-3 btn-small">&nbsp;&nbsp;&nbsp;add&nbsp;&nbsp;&nbsp;&nbsp;</button>
                 </form>
               </td>
             </tr>
